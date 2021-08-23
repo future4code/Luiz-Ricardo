@@ -79,11 +79,6 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-    array.sort(function(a,b){
-        return a - b
-    })
-    segundoMaiorEMenor = [1], array.length-1
-    return segundoMaiorEMenor
   
 }
 
@@ -109,12 +104,12 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+
 }
 
 // EXERCÍCIO 14
