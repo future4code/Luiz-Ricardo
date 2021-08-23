@@ -29,7 +29,7 @@ retornaArrayOrdenado([5, 3, 4, 2, 1])
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
     return numerosPares = array.filter(
-        (array) => {return array % 2 === 0}
+        (numero) => {return numero % 2 === 0}
     )
 }
 
@@ -37,13 +37,29 @@ retornaNumerosPares([1, 2, 3, 4, 5, 6])
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+//     numerosElevados = array.filter(
+//         (numero) => { numero % 2 === 0}
+//     )
+//     for(let i = [0]; numerosParesElevadosADois; i++){
+//         numerosParesElevadosADois[i] = numerosParesElevadosADois[i] * numerosParesElevadosADois[i]
+//     } 
+//     return numerosParesElevadosADois
 }
+
+// retornaNumerosParesElevadosADois(1, 2, 3, 4, 5, 6)
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+    let maior = 0;
+    for (let i = 0; i < array.length; i++){
+        if(array[i] > maior){
+            maior = array[i];
+        }
+    }
+    return maior
 }
+
+retornaMaiorNumero([5, 10, 25, 15, 20, 30])
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
