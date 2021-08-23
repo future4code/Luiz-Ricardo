@@ -9,12 +9,13 @@ function retornaTamanhoArray(array) {
 }
 
 retornaTamanhoArray([2, 3, 4, 5, 6])
-console.log(array.length)
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
-  
+    return array.reverse()
 }
+
+retornaArrayInvertido([10, 25, 30, 45, 50])
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
