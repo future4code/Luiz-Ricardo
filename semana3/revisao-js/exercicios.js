@@ -19,8 +19,12 @@ retornaArrayInvertido([10, 25, 30, 45, 50])
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+    return array.sort(function(a,b){
+        return a - b
+    })
 }
+
+retornaArrayOrdenado([5, 3, 4, 2, 1])
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
