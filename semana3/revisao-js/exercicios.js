@@ -64,11 +64,7 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
 
-
-   
 }
-
-
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
@@ -80,8 +76,6 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
         return "Isósceles"
     }
 }
-
-classificaTriangulo(5, 4, 5)
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
