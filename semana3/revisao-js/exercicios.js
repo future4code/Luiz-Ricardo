@@ -82,7 +82,8 @@ function retornaSegundoMaiorESegundoMenor(array) {
     array.sort(function(a,b){
         return a - b
     })
-    return [1],[array.length-1]
+    segundoMaiorEMenor = [1], array.length-1
+    return segundoMaiorEMenor
   
 }
 
@@ -100,7 +101,10 @@ function retornaChamadaDeFilme(filme) {
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+    novaPessoa = {...pessoa,
+    nome: "ANÔNIMO"
+    }
+    return novaPessoa
 }
 
 // EXERCÍCIO 13A
