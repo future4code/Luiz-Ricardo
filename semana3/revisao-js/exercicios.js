@@ -28,8 +28,12 @@ retornaArrayOrdenado([5, 3, 4, 2, 1])
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+    return numerosPares = array.filter(
+        (array) => {return array % 2 === 0}
+    )
 }
+
+retornaNumerosPares([1, 2, 3, 4, 5, 6])
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
