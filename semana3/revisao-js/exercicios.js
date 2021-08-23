@@ -8,14 +8,10 @@ function retornaTamanhoArray(array) {
     return array.length
 }
 
-retornaTamanhoArray([2, 3, 4, 5, 6])
-
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
     return array.reverse()
 }
-
-retornaArrayInvertido([10, 25, 30, 45, 50])
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
@@ -24,8 +20,6 @@ function retornaArrayOrdenado(array) {
     })
 }
 
-retornaArrayOrdenado([5, 3, 4, 2, 1])
-
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
     return numerosPares = array.filter(
@@ -33,20 +27,14 @@ function retornaNumerosPares(array) {
     )
 }
 
-retornaNumerosPares([1, 2, 3, 4, 5, 6])
-
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-//     numerosElevados = array.filter(
-//         (numero) => { numero % 2 === 0}
-//     )
-//     for(let i = [0]; numerosParesElevadosADois; i++){
-//         numerosParesElevadosADois[i] = numerosParesElevadosADois[i] * numerosParesElevadosADois[i]
-//     } 
-//     return numerosParesElevadosADois
+    numerosPares = array.filter(
+        (numero) => { return numero % 2 === 0}
+    ) 
+    numerosElevadosADois = numerosPares.map((valor) => valor **2)
+    return numerosElevadosADois
 }
-
-// retornaNumerosParesElevadosADois(1, 2, 3, 4, 5, 6)
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
@@ -58,8 +46,6 @@ function retornaMaiorNumero(array) {
     }
     return maior
 }
-
-retornaMaiorNumero([5, 10, 25, 15, 20, 30])
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
@@ -75,12 +61,14 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
     return {maiorNumero, maiorDivisivelPorMenor, diferenca}
 }
 
-retornaObjetoEntreDoisNumeros(5,20)
-
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
+
+
    
 }
+
+
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
