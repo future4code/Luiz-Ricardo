@@ -63,8 +63,19 @@ retornaMaiorNumero([5, 10, 25, 15, 20, 30])
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+    if(num1 > num2){
+        maiorNumero = num1
+        menorNumero = num2
+    } else {
+        maiorNumero = num2
+        menorNumero = num1
+    }
+    maiorDivisivelPorMenor = maiorNumero % menorNumero === 0
+    diferenca = maiorNumero - menorNumero
+    return {maiorNumero, maiorDivisivelPorMenor, diferenca}
 }
+
+retornaObjetoEntreDoisNumeros(5,20)
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
