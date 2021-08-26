@@ -105,6 +105,10 @@ table {
     width: 60%;
 }
 
+.centralizar {
+    text-align: center;
+}
+
 td button {
     background-color: #fadf63;
     width: 150px;
