@@ -8,30 +8,103 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
+const Formulario = styled.div `
+  margin: 20px;
+`
+const Input = styled.input `
+  margin-right: 10px;
+`
 
 class App extends React.Component {
+
+  state = {
+    postagens: [
+      {
+      nomeUsuario: "Clarinha",
+      fotoUsuario: "https://picsum.photos/50/50",
+      fotoPost: "https://picsum.photos/200/150"
+      },
+      {
+      nomeUsuario: "Lulis",
+      fotoUsuario: "https://picsum.photos/50/51",
+      fotoPost: "https://picsum.photos/200/151"
+      },
+      {
+      nomeUsuario: "Mari",
+      fotoUsuario: "https://picsum.photos/50/52",
+      fotoPost: "https://picsum.photos/200/152"
+      }
+    ],
+
+    valorInputNome: "",
+    valorInputFotoPerfil: "",
+    valorInputFotoPost: ""
+  };
+
+  adicionarPostagem = () => {
+    console.log("clicou")
+    const novaPostagem = {
+       nomeUsuario: this.state.valorInputNome,
+       fotoUsuario: this.state.valorInputFotoPerfil,
+       fotoPost: this.state.valorInputFotoPost
+    };
+
+    const novaPostagens = [...this.state.postagens, novaPostagem];
+
+    this.setState({
+      postagens: novaPostagens,
+      valorInputNome: "",
+      valorInputFotoPerfil: "",
+      valorInputFotoPost: ""
+    });
+  };
+
+  onChangeInputNome = (event) => {
+    this.setState({ valorInputNome: event.target.value });
+  };
+
+  onChangeInputFotoPerfil = (event) => {
+    this.setState({ valorInputFotoPerfil: event.target.value });
+  };
+
+  onChangeInputFotoPost = (event) => {
+    this.setState({ valorInputFotoPost: event.target.value });
+  };
+
   render() {
+    const listaDePostagens = this.state.postagens.map((postagem) => {
+      return (
+        <Post
+          nomeUsuario = {postagem.nomeUsuario}
+          fotoUsuario = {postagem.fotoUsuario}
+          fotoPost = {postagem.fotoPost}
+        />
+      )
+    });
+
     return (
       <MainContainer>
-        <Post
-          nomeUsuario={'Clarinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
+        <Formulario>
+          <Input 
+            value={this.state.valorInputNome}
+            onChange={this.onChangeInputNome}
+            placeholder={"Nome"}
+          />
 
-        <Post
-          nomeUsuario={'Lulis'}
-          fotoUsuario={'https://picsum.photos/50/51'}
-          fotoPost={'https://picsum.photos/200/151'}
-        />
+           <Input 
+            value={this.state.valorInputFotoPerfil}
+            onChange={this.onChangeInputFotoPerfil}
+            placeholder={"Foto Perfil"}
+          />
 
-        <Post
-          nomeUsuario={'Mari'}
-          fotoUsuario={'https://picsum.photos/50/52'}
-          fotoPost={'https://picsum.photos/200/152'}
-        />  
-
-
+          <Input 
+            value={this.state.valorInputFotoPost}
+            onChange={this.onChangeInputFotoPost}
+            placeholder={"Foto Post"}
+          />
+          <button onClick={this.adicionarPostagem}>Adicionar</button> 
+        </Formulario>  
+        {listaDePostagens}
       </MainContainer>
     );
   }
