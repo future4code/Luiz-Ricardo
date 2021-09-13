@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+.page-grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 40px 1fr 1fr 40px;
+}
+
+img {
+    width: 30px;
+}
+  
+header {
+    background-color: mediumvioletred;
+    grid-column: 1/6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+header h1 {
+    width: 30px;
+    flex-grow: 1;
+}
+  
+nav {
+    background-color: #f2d0e0;
+    grid-row: 2/4;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+section1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section1 img {
+    width: 200px;
+}
+
+section2 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section2 img {
+    width: 200px;
+}
+
+
+section3 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section3 img {
+    width: 200px;
+}
+
+section4 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section4 img {
+    width: 200px;
+}
+
+section5 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section5 img {
+    width: 200px;
+}
+
+section6 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section6 img {
+    width: 200px;
+}
+
+section7 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 4px darkgrey;
+    padding: 15px;
+}
+section7 img {
+    width: 200px;
+}
+  
+footer {
+    background-color: mediumvioletred;
+    grid-column: 1/ 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
