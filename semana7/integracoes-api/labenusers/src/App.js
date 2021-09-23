@@ -1,51 +1,36 @@
 import React from "react";
-import axios from "react";
-
-const headers = {
-  headers: {
-    Authorization: "luiz-silva-maryam"
-  }
-};
-
+import styled from "styled-components";
+import TelaCadastro from "./Components/TelaCadastro";
+import TelaListaDeNome from "./Components/TelaListaDeNome";
 
 export default class App extends React.Component {
   state = {
-    listaDeNome: [],
-    nomeDaLista: "",
-    emailDaLista: ""
-  };
-
-  // componentDidMount() {
-  //   this.getAllPlaylists();
-  // }
-
-  onChangeInputNome = (event) => {
-    this.setState({nomeDaLista: event.target.value})
+    telaAtual: "cadastro"
   }
 
+  escolheTela = () => {
+    switch (this.state.telaAtual){
+      case "cadastro":
+        return <TelaCadastro irParaLista={this.irParaLista}/>
+      case "lista":
+        return <TelaListaDeNome irParaCadastro={this.irParaCadastro}/>
+      default:
+        return <div>Erro! Página não encontrada.</div>
+    }
+  }
 
+  irParaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
+  }
 
+  irParaLista = () => {
+    this.setState({telaAtual: "lista"})
+  }
 
   render() {
     return(
       <div>
-        <h1>Labenusers</h1>
-        <button>Ir para página de lista</button>
-        <div>
-          <label>Nome:</label>
-          <input
-            value={this.state.valorInputNome}
-            onChange={this.onChangeInputNome}
-            placeholder={"Nome"}
-          />
-          <label>Email:</label>
-          <input
-            value={this.state.valorInputEmail}
-            onChange={this.onChangeInputEmail}
-            placeholder={"Email"}
-          />
-        </div>
-        <button onClick={this.adicionaPessoa}>Adicionar</button>
+        {this.escolheTela()} 
       </div>
     )
   }
