@@ -1,7 +1,13 @@
 import React from "react";
 import TelaCadastro from "./Components/TelaCadastro";
 import TelaLista from "./Components/TelaLista";
-import TelaMusica from "./Components/TelaMusica";
+import styled from "styled-components";
+
+const DivApp = styled.div `
+  background-color: #ebeff3;
+  padding: 10px;
+  height: 100vh;
+`
 
 export default class App extends React.Component {
   state = {
@@ -14,10 +20,6 @@ export default class App extends React.Component {
         return <TelaCadastro irParaLista={this.irParaLista}/>
       case "lista":
         return <TelaLista irParaCadastro={this.irParaCadastro}/>
-      // case "lista":
-      //   return <TelaLista irParaMusica={this.irParaMusica}/>
-      // case "musica":
-      //   return <TelaMusica irParaLista={this.irParaLista}/>
       default:
         return <div>Página não existente!</div>
     }
@@ -31,16 +33,11 @@ export default class App extends React.Component {
     this.setState({telaAtual: "lista"})
   }
 
-  // irParaMusica = () => {
-  //   this.setState({telaAtual: "musica"})
-  // }
-
   render() {
     return (
-      <div>
+      <DivApp>
         {this.escolherTela()}
-        <TelaMusica />
-      </div>
+      </DivApp>
     )
   }
 }

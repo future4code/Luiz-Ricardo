@@ -9,7 +9,6 @@ const headers = {
 
 export default class TelaCadastro extends React.Component {
     state = {
-        // playlist: [],
         nomeMusica: "",
         nomeArtista: "",
         linkMusica: ""
@@ -49,17 +48,8 @@ export default class TelaCadastro extends React.Component {
     
     render() {
 
-        // const playlists = this.state.playlist.map((item) => {
-        //     return (
-        //         <option valeu={item.id}>
-        //             {item.name}
-        //         </option>
-        //     )
-        // })
-
       return (
         <div>
-            {/* <button onClick={this.props.irParaLista}>Ir para Playlist</button> */}
             <h2>Adicionar Música</h2>
             <input 
                 placeholder={"Nome da Música"}

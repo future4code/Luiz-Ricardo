@@ -1,5 +1,13 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const PageCadastro = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 const headers = {
     headers: {
@@ -34,16 +42,18 @@ export default class TelaCadastro extends React.Component {
     
     render() {
       return (
-        <div>
+        <PageCadastro>
             <button onClick={this.props.irParaLista}>Ir para Playlist</button>
-            <h2>Cadastro</h2>
+            <h1>Labefy</h1>
+            <h3>Digite sua Playlist</h3>
             <input 
                 placeholder={"Nome da Playlist"}
                 value={this.state.nomePlaylist}
                 onChange={this.inserirPlaylist}
             />
+            <br></br>
             <button onClick={this.adicionarPlaylist}>Adicionar</button>
-        </div>
+        </PageCadastro>
       )
     }
 }
