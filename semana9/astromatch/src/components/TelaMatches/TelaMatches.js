@@ -1,48 +1,41 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {HeaderMatches, CardPerfil} from "./Styles";
+import {MatchesContainer, HeaderMatches, CardMatches} from "./Styles";
 
 function TelaMatches(props) {
-
-    useEffect(() => {
-        getPerfisMatches()
-    }, [])
-
-    const [perfilDeMatches, setPerfilDeMatches] = useState([])
     
-    const getPerfisMatches= () => {
+    const getMatches = () => {
         axios
             .get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/luiz-silva-maryam/matches")
             .then((response) => {
-                setPerfilDeMatches(response.data.matches)
-                console.log(response.data)
+                props.setMatches(response.data.matches)
             })
             .catch((error) => {
                 console.log(error)
             })
-    }    
+    } 
+    
+    useEffect(() => {
+        getMatches()
+    }, [])
 
-    const listaDeMatches = perfilDeMatches.map((match) => {
+    const listaDeMatches = props.matches.map((match) => {
         return (
-            <CardPerfil>
+            <CardMatches>
                 <img src={match.photo} />
                 <h3>{match.name}</h3>
-            </CardPerfil>
+            </CardMatches>
         )
-    })
-
-    
+    })  
 
     return(
-        <div>
+        <MatchesContainer>
             <HeaderMatches>
-                <h3>Astromatch</h3>
+                <h1>Astromatch</h1>
                 <button onClick={()=> props.irParaPerfil()}>Perfil</button>
             </HeaderMatches>
-            <div>
-                {listaDeMatches}
-            </div>
-        </div>
+            {listaDeMatches}
+        </MatchesContainer>
     )
 }
   

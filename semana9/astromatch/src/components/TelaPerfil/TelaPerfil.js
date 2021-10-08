@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {HeaderPerfil, CardPerfil, FooterPerfil} from "./Styles";
+import {PerfilContainer, HeaderPerfil, CardPerfil, Imagem, FooterPerfil} from "./Styles";
 
 function TelaPerfil(props) {
-    const [perfil, setPerfil] = useState([])
+
+    const [perfil, setPerfil] = useState ([])
 
     const getPerfil = () => {
         axios
@@ -46,7 +47,7 @@ function TelaPerfil(props) {
         }
         const body = {
             id: profile.id,
-            choice: false
+            choice: true
         }
         axios
             .post(url, body, headers)
@@ -63,21 +64,30 @@ function TelaPerfil(props) {
     }, [])
 
     return (
-        <div>
-            <HeaderPerfil>
-                <h3>Astromatch</h3>
-                <button onClick={() => props.irParaMatches()}>Matches</button>
-            </HeaderPerfil>
-            <CardPerfil>
-                <img src={perfil.photo} />
-                <p><strong>{perfil.name}</strong>, {perfil.age}</p>
-                <p>{perfil.bio}</p>
-            </CardPerfil>
-            <FooterPerfil>
-                <button onClick={() => toDeBoa(perfil)}>to de boa</button>
-                <button onClick={() => aiSim(perfil)}>ai sim</button>          
-            </FooterPerfil>
-        </div>
+        <PerfilContainer>
+            {perfil ? 
+                ( 
+                    <div>
+                        <HeaderPerfil>
+                            <h1>Astromatch</h1>
+                            <button onClick={() => props.irParaMatches()}>Matches</button>
+                        </HeaderPerfil>
+                        <CardPerfil>
+                            <Imagem src={perfil.photo} />
+                            <p><strong>{perfil.name}</strong>, {perfil.age}</p>
+                            <p>{perfil.bio}</p>
+                        </CardPerfil>
+                        <FooterPerfil>
+                            <button onClick={() => toDeBoa(perfil)}>to de boa</button>
+                            <button onClick={() => aiSim(perfil)}>ai sim</button>          
+                        </FooterPerfil>
+                    </div>
+                ) :
+                (
+                    <div>Acabram os perfis</div>
+                )
+            }
+        </PerfilContainer>
     );
 }
 
