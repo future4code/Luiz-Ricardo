@@ -60,4 +60,45 @@ export const LoginPageContainer = styled.div `
 `
 export const ButtonLogin = styled.div `
     display: flex;
+    margin: 10px;
+    button {
+        margin: 20px;
+    }
+`
+
+// estilização da AdminHomePage
+export const AdminHomePageContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+export const ButtonAdminHome = styled.div `
+    display: flex;
+    margin: 10px;
+    button {
+        margin: 20px;
+    }
+`
+export const ListTrip = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        color: red;
+    }
+    button {
+        margin-left: 5px;
+    }
+`
+
+// estilização da TripDetailsPage
+export const TripDetailsPageContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        color: red;
+    }
 `

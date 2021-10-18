@@ -34,6 +34,17 @@ export const ApplicationFormPage = () => {
             })
     }
 
+    const postApplyToTrip = () => {
+        axios
+            .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/luiz-silva-maryam/trips/${tripsId}/apply`, form)
+            .then((response) => {
+                alert("Cadastro Realizado!")
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
     const nameTrips = tripsName.map((trip) => {
         return (
             <option key={trip.id} value={trip.id}>
@@ -41,17 +52,6 @@ export const ApplicationFormPage = () => {
             </option>
         )
     })
-
-    const postApplyToTrip = () => {
-        axios
-            .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/luiz-silva-maryam/trips/${tripsId}/apply`, form)
-            .then((response) => {
-                console.log("ok", response.data)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
 
     const onChangeTrip = (event) => {
         setTripsId(event.target.value)
