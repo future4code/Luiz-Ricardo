@@ -1,22 +1,27 @@
-import React from "react";
-import useForm from "../../hooks/useForm";
-import { InputsContainer } from "./styled";
-import { Button, TextField } from "@material-ui/core";
+import React from "react"
+import useForm from "../../hooks/useForm"
+import { useHistory } from "react-router"
+import { signUp } from "../../services/user"
+import { InputsSignUp } from "./styled"
+import { Button, TextField } from "@material-ui/core"
 
 const SignUpForm = () => {
 
-    const [form, onChange, clear] = useForm ({name: "", email: "", password: ""})
+    const history = useHistory()
+
+    const [ form, onChange, clear ] = useForm ({username: "", email: "", password: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        signUp (form, clear, history)
     }
 
     return (
         <form onSubmit={onSubmitForm}>
-            <InputsContainer>            
+            <InputsSignUp>            
                 <TextField 
-                    name={"name"}
-                    value={form.name}
+                    name={"username"}
+                    value={form.username}
                     onChange={onChange}
                     label={"Nome"}
                     variant={"outlined"}
@@ -47,7 +52,7 @@ const SignUpForm = () => {
                     required
                     type={"password"}
                 />
-            </InputsContainer>    
+            </InputsSignUp>    
             <Button
                 type={"submit"}
                 fullWidth

@@ -1,18 +1,26 @@
-import React from "react";
-import useForm from "../../hooks/useForm";
-import { InputsContainer } from "./styled";
-import { Button, TextField } from "@material-ui/core";
+import React, { useContext } from "react"
+import { GlobalStateContext } from "../../global/GlobalStateContext"
+import useForm from "../../hooks/useForm"
+import { useHistory } from "react-router-dom"
+import { login } from "../../services/user"
+import { InputsLoginForm } from "./styled"
+import { Button, TextField } from "@material-ui/core"
 
 const LoginForm = () => {
 
-    const [form, onChange, clear] = useForm ({email: "", password: ""})
+    const history = useHistory()
+
+    const { seters } = useContext (GlobalStateContext)
+
+    const [ form, onChange, clear ] = useForm ({email: "", password: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        login (form, clear, history, seters.setRightButtonText)
     }
 
     return (
-        <InputsContainer>
+        <InputsLoginForm>
             <form onSubmit={onSubmitForm}>
                 <TextField 
                     name={"email"}
@@ -45,8 +53,7 @@ const LoginForm = () => {
                     Login
                 </Button>
             </form>
-        </InputsContainer>
-            
+        </InputsLoginForm>     
     )
 }
 

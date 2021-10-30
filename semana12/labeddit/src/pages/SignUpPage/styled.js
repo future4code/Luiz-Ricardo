@@ -1,22 +1,21 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const ScreenContainer = styled.div `
+//SignUpPage
+
+export const SignUpContainer = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
 `
 
-export const InputsContainer = styled.div `
+//SignUpForm
+
+export const InputsSignUp = styled.div `
     display: flex;
     flex-direction: column;
     width: 80vw;
     max-width: 450px;
     align-items: center;
     margin-bottom: 20px;
-`
-
-export const SignUpButtonContainer = styled.div `
-    width: 80vw;
-    max-width: 450px;
 `
