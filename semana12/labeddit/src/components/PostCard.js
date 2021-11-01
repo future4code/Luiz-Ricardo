@@ -1,7 +1,7 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
 import { goToPostDetails } from "../routes/coordinator"
-import { PostContainer, CardPost, TextPost, ComentsPost, CardContentStyle } from "./styled"
+import { PostContainer, CardPost, TextPost, CommentsPost, CardContentStyle } from "./styled"
 import { Button, CardActionArea } from "@material-ui/core"
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward"
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward"
@@ -21,7 +21,7 @@ const PostCard = (props) => {
                         <TextPost>{props.text}</TextPost>
                     </CardContentStyle>
                 </CardActionArea>
-                <ComentsPost>
+                <CommentsPost>
                     <div>
                         {(props.userVote === 1) ? 
                         (<Button onClick={()=> props.like (props.postId, props.userVote)}> 
@@ -44,7 +44,7 @@ const PostCard = (props) => {
                     <p>
                         {props.commentsCount} Comentários
                     </p>
-                </ComentsPost>
+                </CommentsPost>
             </CardPost>
         </PostContainer>
     )

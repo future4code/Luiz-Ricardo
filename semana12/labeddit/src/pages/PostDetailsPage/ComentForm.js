@@ -6,20 +6,20 @@ import { BASE_URL } from "../../constants/urls"
 import { FormContainer } from "./styled"
 import { Button, TextField } from "@material-ui/core"
 
-const PostForm = (props) => {
+const ComentForm = (props) => {
 
     const { seters } = useContext (GlobalStateContext)
     
-    const createPost = () => {
+    const createComent = (id) => {
 
         const headers = {
             headers: { Authorization: localStorage.getItem ("token") }
         }
 
         axios
-            .post(`${BASE_URL}/posts`, form, headers)
+            .post(`${BASE_URL}/posts/${id}/comments`, form, headers)
             .then ((response) => {
-                alert("Post Criado!")
+                alert("Comentário Criado!")
                 clear()
                 seters.getPosts(response.data)
             }).catch ((error) => 
@@ -27,33 +27,22 @@ const PostForm = (props) => {
             )
     }
 
-    const [form, onChange, clear] = useForm ({title: "", body: ""})
+    const [form, onChange, clear] = useForm ({body: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        createPost()
+        createComent()
     }
 
     return (
         <FormContainer>
-            <h2>Crie seu Post</h2>
+            <h2>Tem algo a comentar?</h2>
             <form onSubmit={onSubmitForm}>
-                <TextField 
-                    name={"title"}
-                    value={form.title}
-                    onChange={onChange}
-                    label={"Titulo do Post"}
-                    variant={"outlined"}
-                    fullWidth
-                    margin={"normal"}
-                    required
-                    type={"text"}
-                />
                 <TextField
                     name={"body"}
                     value={form.body}
                     onChange={onChange}
-                    label={"Post"}
+                    label={"Comentário"}
                     variant={"outlined"}
                     fullWidth
                     margin={"normal"}
@@ -66,11 +55,11 @@ const PostForm = (props) => {
                     variant={"contained"}
                     color={"primary"}
                 >
-                    Postar
+                    Comentar
                 </Button>
             </form>
         </FormContainer>
     )
 }
 
-export default PostForm
+export default ComentForm

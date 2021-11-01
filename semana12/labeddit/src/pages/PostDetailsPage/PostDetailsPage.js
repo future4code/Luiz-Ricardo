@@ -6,6 +6,9 @@ import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from "../../constants/urls"
 import { useParams } from "react-router-dom"
 import PostCard from "../../components/PostCard"
+import CommentCard from "../../components/CommentCard"
+import ComentForm from "./ComentForm"
+import { DetailsContaneir } from "./styled"
 
 const PostDetailsPage = (props) => {
     
@@ -30,8 +33,7 @@ const PostDetailsPage = (props) => {
             axios
             .post(`${BASE_URL}/posts/${id}/votes`, body, headers)
             .then((response) => { 
-                seters.getPosts()
-                console.log(seters.getPosts())   
+                seters.getPosts(response.data)  
             })
             .catch ((error) => {
                 console.log(error.response.data)
@@ -40,8 +42,7 @@ const PostDetailsPage = (props) => {
             axios
             .put(`${BASE_URL}/posts/${id}/votes`, body, headers)
             .then((response) => {  
-                seters.getPosts()
-                console.log(seters.getPosts())     
+                seters.getPosts(response.data)      
             })
             .catch ((error) => {
                 console.log(error.response.data)
@@ -50,8 +51,7 @@ const PostDetailsPage = (props) => {
             axios
             .delete(`${BASE_URL}/posts/${id}/votes`, headers)
             .then((response) => { 
-                seters.getPosts()
-                console.log(seters.getPosts())   
+                seters.getPosts(response.data)   
             })
             .catch ((error) => {
                 console.log(error.response.data)
@@ -117,11 +117,29 @@ const PostDetailsPage = (props) => {
             )
         }
     })
+
+    const [comments, getComments] = useRequestData ([], `${BASE_URL}/posts/${params.id}/comments`)
+    
+    const commmentsPost = comments.map((comment) => {
+        return (
+            <CommentCard
+                key={comment.id}
+                username={comment.username}
+                body={comment.body}
+                voteSum={comment.voteSum}
+                id={comment.id}
+                getComments={getComments}
+                post={post}
+            />
+        )
+    })
     
     return (
-        <div>
+        <DetailsContaneir>
             {postDetails}
-        </div>
+            <ComentForm />
+            {commmentsPost}
+        </DetailsContaneir>
     )
 }
 
