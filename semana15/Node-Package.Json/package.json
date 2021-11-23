@@ -1,0 +1,13 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "exercicio1": "node exercicio1/index.js",
+    "exercicio2": "node exercicio2/index.js",
+    "exercicio3": "node exercicio3/index.js"
+  },
+  "author": "Luiz Ricardo",
+  "license": "ISC"
+}
