@@ -4,5 +4,5 @@ const listaDeTarefas = [
     "Passear com a Jamaica"
 ]
 
-const novaTarefa = listaDeTarefas.push(process.argv[2]);
+const novaTarefa = listaDeTarefas.push(process.argv[2])
 console.log(listaDeTarefas)
