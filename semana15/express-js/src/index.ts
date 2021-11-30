@@ -1,7 +1,6 @@
 import express from "express"
 import cors from "cors"
 import { countries } from "./data"
-import { country } from "./types"
 
 const app = express()
 
@@ -23,30 +22,37 @@ app.get("/countries", (req, res) => {
 //ENDPOINT 3 - BUSCAR COM FILTROS
 
 app.get("/countries/search", (req, res) => {
-    
-    let result: country[] = countries
+
+    let result = countries
+
+    try {
+        if (!req.query.name && !req.query.capital && !req.query.continent) {
+            throw new Error("Nenhum parâmetro foi passado")
+        }
 
         if (req.query.name) {
-            result = result.filter(
-                country => country.name.includes(req.query.name as string)
+            result = result.filter(country => 
+                country.name.includes(req.query.name as string)
             )
         }
 
         if (req.query.capital) {
-            result = result.filter(
-                country => country.capital.includes(req.query.capital as string)
+            result = result.filter(country => 
+                country.capital.includes(req.query.capital as string)
             )
         }
 
         if (req.query.continent) {
-            result = result.filter(
-                country => country.continent.includes(req.query.continent as string)
+            result = result.filter(country => 
+                country.continent.includes(req.query.continent as string)
             )
-        } else {
-            res.status(404).send("País não encontrado")
         }
+        
+        res.status(200).send(result)
 
-    res.status(200).send(result)
+    } catch (erro: any) {
+        res.status(400).send({message: erro.message})
+    }
 })
 
 //ENDPOINT 2 - BUSCAR PAÍS POR ID
