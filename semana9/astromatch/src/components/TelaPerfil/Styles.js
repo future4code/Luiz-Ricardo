@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PerfilContainer = styled.div `
     border: 2px solid black;
-    background-color: pink;
+    background-color: green;
     height: 90vh;
     width: 40vw;
 `
