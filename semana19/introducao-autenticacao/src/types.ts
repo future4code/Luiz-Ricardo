@@ -1,6 +1,9 @@
 export type user = {
    id: string
    email: string
-   name: string
-   nickname: string
+   password: string
+}
+
+export interface AuthenticationData {
+   id: string
 }

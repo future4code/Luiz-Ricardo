@@ -1,11 +1,8 @@
 import app from "./app"
-import editUser from './endpoints/editUser'
 import createUser from './endpoints/createUser'
-import { generateId } from "./services/generateId"
+import login from "./endpoints/login"
+import loggedInUser from "./endpoints/loggedInUser"
 
-app.post('/users/signup', createUser)
-app.put('/users/:id', editUser)
-
-const id = generateId()
-
-console.log("olha eu ai", id)
+app.post('/user/signup', createUser)
+app.post('/user/login', login)
+app.get('/user/profile', loggedInUser)
