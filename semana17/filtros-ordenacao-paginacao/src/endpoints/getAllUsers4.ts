@@ -17,7 +17,7 @@ export const getAllUsers4 = async (req: Request, res: Response): Promise<void> =
 
         const offset = 5 * (page - 1)
 
-        const users = await selectAllUsers4(name, type, sort, order, page, limit, offset)
+        const users = await selectAllUsers4(name, type, sort, order, limit, page, offset)
  
         if (!users.length) {
             res.statusCode = 404

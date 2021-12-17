@@ -5,9 +5,9 @@ export default async function selectAllUsers4(
     type: string, 
     sort: string, 
     order: string, 
-    limit: number, 
-    offset: number, 
-    page: number
+    limit: number,
+    page: number, 
+    offset: number
     ): Promise<any> {
     const result = await connection.raw(`
         SELECT id, name, email, type

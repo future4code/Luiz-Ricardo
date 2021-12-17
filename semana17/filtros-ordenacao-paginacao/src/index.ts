@@ -1,8 +1,8 @@
 import { app } from "./app"
-import { getAllUsers1 } from "./endpoint/getAllUsers1"
-import { getAllUsers2 } from "./endpoint/getAllUsers2"
-import { getAllUsers3 } from "./endpoint/getAllUsers3"
-import { getAllUsers4 } from "./endpoint/getAllUsers4"
+import { getAllUsers1 } from "./endpoints/getAllUsers1"
+import { getAllUsers2 } from "./endpoints/getAllUsers2"
+import { getAllUsers3 } from "./endpoints/getAllUsers3"
+import { getAllUsers4 } from "./endpoints/getAllUsers4"
 
 // app.get('/users', getAllUsers)
 // app.get('/users/:type', getAllUsers)
