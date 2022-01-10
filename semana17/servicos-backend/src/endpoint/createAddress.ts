@@ -1,5 +1,6 @@
 import { connection } from "../data/connection"
 import { Request, Response } from "express"
+import { getAddressInfo } from "../services/getAddressInfo"
 import { Address } from "../types"
 
 export default async function createAddress(
@@ -7,14 +8,14 @@ export default async function createAddress(
     res: Response
 ): Promise<void> {
     try {
-        const { cep, logradouro, numero, complemento, bairro, cidade, estado } = req.body
-
-        if ( !cep || !logradouro || !numero || !bairro || !cidade || !estado) {
+        const { cep, numero, complemento } = req.body
+        
+        if ( !cep || !numero ) {
             res.statusCode = 422
             throw "'cep', 'logradouro', 'numero', 'bairro', 'cidade' e 'estado' são obrigatórios"
         }
 
-        const newAddress: Address = { cep, logradouro, numero, complemento, bairro, cidade, estado }
+        const newAddress: Address = await getAddressInfo(cep, numero, complemento)
 
         await connection('Aula51_Address').insert(newAddress)
 
