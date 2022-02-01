@@ -1,0 +1,13 @@
+{
+  "name": "exercise-day-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"clear && tsc --outFile exercise1.js exercise1.ts && node exercise1.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
